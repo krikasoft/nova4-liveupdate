@@ -44,7 +44,7 @@ export default {
                     .then (function (response) {
                         vm.loading = false
                         vm.field.value = vm.value
-                        vm.$toasted.show('Successfully updated!', { type: 'success' })
+                        Nova.$toasted.show('Successfully updated!', { type: 'success' })
                     })
                     .catch (function (error) {
                         vm.loading = false

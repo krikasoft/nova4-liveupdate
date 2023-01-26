@@ -1,5 +1,18 @@
 let mix = require('laravel-mix')
+let tailwindcss = require('tailwindcss')
+let path = require('path')
+let postcssImport = require('postcss-import')
 
-mix.setPublicPath('dist')
+require('./nova.mix') 
+
+mix
+    .setPublicPath('dist')
     .js('resources/js/field.js', 'js')
-    .sass('resources/sass/field.scss', 'css')
+    .vue({
+        version: 3
+    })
+    .postCss("resources/css/field.css", "css", [
+        postcssImport(),
+        tailwindcss('tailwind.config.js'),
+    ])
+    .nova('sfinktah/nova4-inline-field-update')
