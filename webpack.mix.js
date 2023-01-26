@@ -15,4 +15,4 @@ mix
         postcssImport(),
         tailwindcss('tailwind.config.js'),
     ])
-    .nova('sfinktah/nova4-inline-field-update')
+    .nova('sfinktah/nova4-liveupdate')

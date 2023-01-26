@@ -1,1 +1,6 @@
-// Nova Tool CSS
+/* Nova Tool components */
+@tailwind components;
+/* Nova Tool components END*/
+/* Nova Tool utilities */
+@tailwind utilities;
+/* Nova Tool utilities END */

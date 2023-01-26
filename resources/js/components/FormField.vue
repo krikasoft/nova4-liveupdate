@@ -2,10 +2,12 @@
 <DefaultField
 :field="field"
 :errors="errors"
+:show-help-text="showHelpText"
+:full-width-content="fullWidthContent"
 >
 <template #field>
 <input
-:id="field.name"
+:id="field.attribute"
 type="text"
 class="w-full form-control form-input form-input-bordered"
 :class="errorClasses"
@@ -29,7 +31,7 @@ mixins: [FormField, HandlesValidationErrors],
              * Set the initial, internal value for the field.
              */
             setInitialValue() {
-                this.value = String(this.field.value) || ''
+                this.value = this.field.value || ''
             },
 
             /**

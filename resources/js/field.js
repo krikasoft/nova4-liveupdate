@@ -1,5 +1,9 @@
-Nova.booting((Vue, router, store) => {
-    Vue.component('index-liveupdate', require('./components/IndexField'))
-    Vue.component('detail-liveupdate', require('./components/DetailField'))
-    Vue.component('form-liveupdate', require('./components/FormField'))
+import IndexField from './components/IndexField'
+import DetailField from './components/DetailField'
+import FormField from './components/FormField'
+
+Nova.booting((app, store) => {
+  app.component('index-nova4-liveupdate', IndexField)
+  app.component('detail-nova4-liveupdate', DetailField)
+  app.component('form-nova4-liveupdate', FormField)
 })

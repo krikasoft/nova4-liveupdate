@@ -1,11 +1,12 @@
 <?php
 
-namespace Wehaa\Liveupdate;
+namespace Sfinktah\Nova4Liveupdate;
 
-use Laravel\Nova\Nova;
-use Laravel\Nova\Events\ServingNova;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
+use Laravel\Nova\Events\ServingNova;
+use Laravel\Nova\Nova;
+use Sfinktah\MarkleArticle\Http\Middleware\Authorize;
 
 class FieldServiceProvider extends ServiceProvider
 {
@@ -21,8 +22,8 @@ class FieldServiceProvider extends ServiceProvider
         });
 
         Nova::serving(function (ServingNova $event) {
-            Nova::script('liveupdate', __DIR__ . '/../dist/js/field.js');
-            Nova::style('liveupdate', __DIR__ . '/../dist/css/field.css');
+            Nova::script('nova4-liveupdate', __DIR__.'/../dist/js/field.js');
+            Nova::style('nova4-liveupdate', __DIR__.'/../dist/css/field.css');
         });
     }
 
@@ -46,6 +47,7 @@ class FieldServiceProvider extends ServiceProvider
         if ($this->app->routesAreCached()) {
             return;
         }
+        // Route::middleware(['nova', Authorize::class])
         Route::middleware(['nova'])
             ->prefix('live-update')
             ->group(__DIR__ . '/../routes/api.php');

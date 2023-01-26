@@ -1,5 +1,5 @@
 {
-    "name": "wehaa/liveupdate",
+    "name": "sfinktah/nova4-liveupdate",
     "description": "A Laravel Nova field.",
     "keywords": [
         "laravel",
@@ -7,17 +7,17 @@
     ],
     "license": "MIT",
     "require": {
-        "php": ">=7.1.0"
+        "php": "^7.3|^8.0"
     },
     "autoload": {
         "psr-4": {
-            "Wehaa\\Liveupdate\\": "src/"
+            "Sfinktah\\Nova4Liveupdate\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Wehaa\\Liveupdate\\FieldServiceProvider"
+                "Sfinktah\\Nova4Liveupdate\\FieldServiceProvider"
             ]
         }
     },

@@ -1,6 +1,6 @@
 <?php
 
-namespace Wehaa\Liveupdate\Http\Controllers;
+namespace Sfinktah\Nova4Liveupdate\Http\Controllers;
 
 use Illuminate\Routing\Controller;
 use Laravel\Nova\Http\Requests\NovaRequest;

@@ -1,13 +1,20 @@
 <template>
-    <div class="relative flex items-stretch">
+    <div class="relative flex items-stretch liveupdate-scoped">
         <input
             :id="field.name + field.id"
             type="text"
-            class="w-full form-control form-input form-input-bordered live-update"
+            class="w-full
+            border-transparent
+            hover:border-primary-500  dark:hover:border-gray-400
+
+            focus:border-gray-900     dark:focus:border-gray-300
+            focus:text-gray-900       dark:focus:text-gray-300
+            live-update"
             :placeholder="field.name"
             v-model="value"
             @blur="save"
             @keyup.enter="save"
+            @click.stop
             :style="'min-width:'+field.minWidth+'px;'"
         />
         <!-- thanks to https://github.com/epartment/nova-unique-ajax-field/blob/master/resources/js/components/FormField.vue -->
@@ -74,27 +81,58 @@ export default {
             this.value = value
         },
     },
+    computed: {
+        fieldValue() {
+            return this.field.displayedAs || this.field.value
+        },
+    },
 }
 </script>
 
 <style lang="scss" scoped>
-    .live-update {
-        border: 0;
-        box-shadow: 0 0 0 rgba(0, 0, 0, 0) !important;
-        &:focus {
-            border: inherit;
-            box-shadow: 0 0 8px var(--primary) !important;
+        input.live-update {
+            box-shadow: 0 0 0 rgba(0, 0, 0, 0) !important;
+
+            border-top-width: initial;
+            border-right-width: initial;
+            border-left-width: initial;
+            border-top-style: none;
+            border-right-style: none;
+            border-left-style: none;
+            border-top-color: initial;
+            border-right-color: initial;
+            border-left-color: initial;
+            border-image-source: initial;
+            border-image-width: initial;
+            border-image-repeat: initial;
+            border-bottom-width: 1px;
+            border-bottom-style: dotted;
+            border-radius: initial;
+            background-color: transparent;
+            //padding-left: 0;
+            //padding-right: 0;
+            //height: 1.25rem;
+            &:focus-visible {
+                outline: none;
+            }
+            &:focus {
+            }
+
+            &:hover {
+            }
         }
-    }
-    @-webkit-keyframes rotating {
-        from{
-            transform: rotate(0deg);
+        @-webkit-keyframes rotating {
+            from{
+                transform: rotate(0deg);
+            }
+            to{
+                transform: rotate(360deg);
+            }
         }
-        to{
-            transform: rotate(360deg);
+        .rotating {
+            animation: rotating 2s linear infinite;
         }
-    }
-    .rotating {
-        animation: rotating 2s linear infinite;
-    }
+    //border-transparent dark:border-transparent
+    //hover:border-gray-300 dark:hover:border-gray-700
+    //focus:border-gray-500 dark:focus:border-gray-400
 </style>

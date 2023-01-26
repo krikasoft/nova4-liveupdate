@@ -1,9 +1,9 @@
 <?php
 
-namespace Wehaa\Liveupdate;
+namespace Sfinktah\Nova4Liveupdate;
 
+use Illuminate\Support\Facades\Config;
 use Laravel\Nova\Fields\Field;
-use Config;
 
 class Liveupdate extends Field
 {
@@ -12,7 +12,7 @@ class Liveupdate extends Field
      *
      * @var string
      */
-    public $component = 'liveupdate';
+    public $component = 'nova4-liveupdate';
 
     protected function resolveAttribute($resource, $attribute)
     {
